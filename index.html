@@ -17,7 +17,7 @@
 
 <body>
 
-	<div id="header">
+	<div id="menu_container">
 	
     	<ul id="menu">
         	<li><a href="#page-1" class="selected">Home</a></li>
@@ -123,7 +123,6 @@
                 </div>
              
                 <div class="line-element " id="page-6">
-                    <img src="img/foundry_dark.png" class="cover" />
                     <div class="vertical-panel text">
 	            	
 		            	 <h1>Contatti</h1>
@@ -160,11 +159,11 @@
         		$(window).load(function(){
         
         			/* Navigation */
-        			$(".menu a").click(function(){
+        			$("#menu a").click(function(){
         			
         				var myid= $(this).attr("href");
         				
-        				$(".menu a").removeClass('selected');
+        				$("#menu a").removeClass('selected');
         				$(this).addClass('selected');
         	
         				//$(".slider").mCustomScrollbar("scrollTo","" + myid + "");
