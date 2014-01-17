@@ -151,15 +151,16 @@
         		$(window).load(function(){
 
         			/* Navigation */
-        			$("#menu a").click(function(){
-
+        			$("#menu a").click(function(e){
+                        e.preventDefault();
         				var myid= $(this).attr("href");
 
         				$("#menu a").removeClass('selected');
         				$(this).addClass('selected');
 
-        				//$(".slider").mCustomScrollbar("scrollTo","" + myid + "");
-
+                        //alert($(myid).offset().left + 300);
+        				//$(".slider").scrollLeft($(myid).offset().left);
+                        $('.slider').animate({left: -$(myid).position().left}, 458, 'swing', function() {});                        
         			});
 
         		});
@@ -177,7 +178,7 @@
                    $(".vertical-panel").height($(window).height());
                }).smartresize(); // trigger resize to set container width
 
-        	})(jQuery);
+        	});
     </script>
 
 </body>
