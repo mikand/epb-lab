@@ -103,8 +103,8 @@ hr {
     position: relative;
     z-index: 20;
     height: 100%;
-    background: #fff;
-    color: #111;
+    background: #111;
+    color: #fff;
     width: 30%;
     opacity: 0.8;
     overflow:hidden;
