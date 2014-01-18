@@ -117,7 +117,7 @@
                             <a href="http://goo.gl/maps/oWRFP" target="_blank">Google Maps</a>
                         </p>
                         <p>Email:
-                            <a href="mailto:epb.lab@tin.it">epb.lab [AT] tin.it</a>
+                            <a href="mailto:&#101;&#112;&#098;&#046;&#108;&#097;&#098;&#064;&#116;&#105;&#110;&#046;&#105;&#116;">&#101;&#112;&#098;&#046;&#108;&#097;&#098;&#064;&#116;&#105;&#110;&#046;&#105;&#116;</a>
                         </p>
 
                     </div>
@@ -136,6 +136,7 @@
     <script src="js/jquery.isotope.min.js"></script>
 
     <script>
+        var currentElement = "#page-2"
         $(function(){
 
         		$(window).load(function(){
@@ -150,7 +151,8 @@
 
                         //alert($(myid).offset().left + 300);
         				//$(".slider").scrollLeft($(myid).offset().left);
-                        $('.slider').animate({left: -$(myid).position().left}, 458, 'swing', function() {});                        
+                        $('.slider').animate({left: -$(myid).position().left}, 458, 'swing', function() {});
+                        currentElement = myid;
         			});
 
         		});
@@ -166,6 +168,8 @@
                    container.width(colW);
                    $(".line-element").width($(window).width());
                    $(".vertical-panel").height($(window).height());
+                   
+                   $('.slider').css({left: -$(currentElement).position().left});
                }).smartresize(); // trigger resize to set container width
 
         	});
