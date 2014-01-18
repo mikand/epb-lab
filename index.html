@@ -100,7 +100,7 @@
             </div>
 
             <div class="line-element " id="page-6" style="background-image:url(img/scintille.png)">
-                
+
                 <div class="vertical-panel">
                     <div class="vertical-panel-content">
                         <h1>Contatti</h1>
@@ -137,57 +137,37 @@
 
     <script>
         $(function(){
-        	
+
         		$(window).load(function(){
-        
+
         			/* Navigation */
-        			$("#menu a").click(function(){
-        			
+        			$("#menu a").click(function(e){
+                        e.preventDefault();
         				var myid= $(this).attr("href");
-        				
+
         				$("#menu a").removeClass('selected');
         				$(this).addClass('selected');
-        	
-        				//$(".slider").mCustomScrollbar("scrollTo","" + myid + "");
-        				
+
+                        //alert($(myid).offset().left + 300);
+        				//$(".slider").scrollLeft($(myid).offset().left);
+                        $('.slider').animate({left: -$(myid).position().left}, 458, 'swing', function() {});                        
         			});
-        
+
         		});
-        			
-        			
-        	})(jQuery);
-    </script>
+            
+            
+                
+        	   $(window).smartresize(function(){
+                   var cols = 5;
+                   var container = $('.slider');
+                   
+                   var colW = $(window).width() * cols;
 
+                   container.width(colW);
+                   $(".line-element").width($(window).width());
+                   $(".vertical-panel").height($(window).height());
+               }).smartresize(); // trigger resize to set container width
 
-    <script>
-        $(function(){
-        	  
-        	  var $container = $('#news-container'),
-        	      $body = $('#news-panel'),
-        	      colW = 360,
-        	      columns = null;
-        	  
-        	  $container.isotope({
-        	    // disable window resizing
-        	    resizable: false,
-        	    masonry: {
-        	      columnWidth: colW
-        	    }
-        	  });
-        	  
-        	  $(window).smartresize(function(){
-        	    // check if columns has changed
-        	    var currentColumns = Math.floor( ( $body.width() -10 ) / colW );
-        	    if ( currentColumns !== columns ) {
-        	      // set new column count
-        	      columns = currentColumns;
-        	      // apply width to container manually, then trigger relayout
-        	      $container.width( columns * colW )
-        	        .isotope('reLayout');
-        	    }
-        	    
-        	  }).smartresize(); // trigger resize to set container width
-        	  
         	});
     </script>
 
